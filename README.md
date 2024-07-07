@@ -12,6 +12,9 @@ Similarly, when using rules_proto_grpc, which delegates to the protoc compiler,
 and using the `import_prefix`, the only way to use an import prefix is to also
 add it to all of the existing import statements of the `.proto` file. 
 
+## Other
+This all seems like expected behavior based on this [Google Group message](https://groups.google.com/g/protobuf/c/ZDTuqPjEFD8/m/BKxJHLssKOwJ).
+
 Related issues:
 * [Support adding a pb2_module_prefix on protoc plugin by chrisirhc · Pull Request #196 · vmagamedov/grpclib][grpclib-pr196]
 * [Python: support for optional python_package (or similar) to make import explicit · Issue #7061 · protocolbuffers/protobuf][protobuf#7061] 
