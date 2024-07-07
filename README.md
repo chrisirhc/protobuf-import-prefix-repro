@@ -1,19 +1,11 @@
 # Examples of using Protobuf to get an output with import prefixes
+I wanted to achieve the behavior of adding an import prefix to compiled `.proto` libraries. This is commonly done to avoid package namespace collisions, especially when the package is already defined by other files or libraries.
 
-I wanted to get the behavior of adding an import prefix to compiled `.proto`
-libraries.
-This is typically done to prevent package namespace collisions. For example when
-the package is already defined by some other files/libraries.
+For instance, if a proto file contains the import statement `import "deps.proto"`, it can be converted to `from a.b import deps` in the case of Python.
 
-For example, if a proto file contains: `import "deps.proto"`, convert it to
-`from a.b import deps` in the case of Python.
+The straightforward approach to achieve this with the protoc plugin is to nest the proto files within directories that correspond to the desired import prefix (e.g., `a/b` for `a.b`). This method generally works well, except when the proto files need to import each other.
 
-The obvious way to do this with protoc plugin, is to nest the proto files within
-the directories that you want the import prefix to be (a/b -> a.b). And it sort
-of works, except when your proto files need to import each other.
-
-Then, in that scenario, we'd also need to rewrite all the imports in the proto
-files with the prefix. See `protoc-import-statement-with-prefix`.
+In such cases, it becomes necessary to rewrite all the imports in the proto files with the appropriate prefix. You can refer to the `protoc-import-statement-with-prefix` for an example of how to do this.
 
 ## Bazel rules use (rules_proto_grpc)
 Similarly, when using rules_proto_grpc, which delegates to the protoc compiler,
