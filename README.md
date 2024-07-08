@@ -13,6 +13,8 @@ and using the `import_prefix`, the only way to use an import prefix is to also
 add it to all of the existing import statements of the `.proto` file. 
 
 ## Other
+Buf's resources indicate that this behavior with import paths is expected: https://buf.build/docs/reference/protobuf-files-and-packages#imports .
+
 This all seems like expected behavior based on this [Google Group message](https://groups.google.com/g/protobuf/c/ZDTuqPjEFD8/m/BKxJHLssKOwJ).
 
 Related issues:
